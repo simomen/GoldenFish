@@ -35,6 +35,7 @@ public class ReservationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -59,8 +60,7 @@ public class ReservationServlet extends HttpServlet {
 		if (action.equals("verif")) {
 			ReservationDAO resDAO = ReservationDAO.getInstance();
 			Chambre ch = resDAO.verifDispo(dateDeb, dateFin, typeChambre,
-					Integer.parseInt(nbChambre), 
-					ville);
+					Integer.parseInt(nbChambre), ville);
 			System.out.println("chambre = " + ch);
 			if (ch != null) {
 				session.setAttribute("dispo", "ok");

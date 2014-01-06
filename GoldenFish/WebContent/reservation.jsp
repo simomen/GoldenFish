@@ -22,7 +22,7 @@
 				<div class="inner">
 					<h3>Reservation:</h3>
 					<form action="ReservationServlet" id="reservation-form"
-						method="post" name="verifDispo">
+						method="get" name="verifDispo">
 						<fieldset>
 							<div class="field">
 								<label>Date début réservation :</label> <input type="text"

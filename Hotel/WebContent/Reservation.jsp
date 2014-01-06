@@ -32,30 +32,33 @@
 			document.formulaire.db.focus();
 			return false;
 		}
-		 function getDate(strDate){	  
-			    day = strDate.substring(0,2);
-				month = strDate.substring(3,5);
-				year = strDate.substring(6,10);
-				d = new Date();
-				d.setDate(day);
-				d.setMonth(month);
-				d.setFullYear(year); 
-				return d;  
-			  }
-			  
-			  //Retorune:
-			  //   0 si date_1=date_2
-		  	  //   1 si date_1>date_2
-			  //  -1 si date_1<date_2	  
-			  function compare(date_1, date_2){
-			    diff = date_1.getTime()-date_2.getTime();
-			    return (diff==0?diff:diff/Math.abs(diff));
-			  }
-		  	  if(compare(getDate(document.formulaire.db.value),getDate(document.formulaire.df.value))==1 || compare(getDate(document.formulaire.db.value),getDate(document.formulaire.df.value))==0 ){
-		  		document.formulaire.df.focus();
-		  		alert("La date de fin doit être ultérieure à la date de debut Veuillez modifier vos dates et réessayer.");
-				return false;
-		  	  }
+		function getDate(strDate) {
+			day = strDate.substring(0, 2);
+			month = strDate.substring(3, 5);
+			year = strDate.substring(6, 10);
+			d = new Date();
+			d.setDate(day);
+			d.setMonth(month);
+			d.setFullYear(year);
+			return d;
+		}
+
+		//Retorune:
+		//   0 si date_1=date_2
+		//   1 si date_1>date_2
+		//  -1 si date_1<date_2	  
+		function compare(date_1, date_2) {
+			diff = date_1.getTime() - date_2.getTime();
+			return (diff == 0 ? diff : diff / Math.abs(diff));
+		}
+		if (compare(getDate(document.formulaire.db.value),
+				getDate(document.formulaire.df.value)) == 1
+				|| compare(getDate(document.formulaire.db.value),
+						getDate(document.formulaire.df.value)) == 0) {
+			document.formulaire.df.focus();
+			alert("La date de fin doit être ultérieure à la date de debut Veuillez modifier vos dates et réessayer.");
+			return false;
+		}
 
 	}
 </script>
@@ -88,17 +91,19 @@
 			%>
 			<br>
 			<div class="indent" align="center">
-				<h2>Recherche d'hôtels : Maroc</h2>
+				<h2>Recherche d'hôtels : France</h2>
 				<form action="hotel.jsp" name="formulaire" method="get"
 					onsubmit="return verif()">
 					<table>
 						<tr>
-							<td>Destination / Ville &nbsp;&nbsp;</td>
+							<td>Destinations / Ville &nbsp;&nbsp;</td>
 							<td>&nbsp;&nbsp;<select name="ville">
 									<%
 										Statement s = ConnectionFactory.getConnection().createStatement();
 										ResultSet rs = s.executeQuery("select DISTINCT ville from hotel ");
+										System.out.println("reservetion simo");
 										while (rs.next()) {
+											System.out.println("reservetion simo while");
 									%>
 									<option value="<%=rs.getString(1)%>"><%=rs.getString(1)%></option>
 									<%

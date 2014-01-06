@@ -8,7 +8,7 @@ public class Client {
 	private String adresse;
 	private String tel;
 	private String mail;
-	private String pass;
+	private String login;
 	public int getCode() {
 		return code;
 	}
@@ -46,10 +46,16 @@ public class Client {
 		this.mail = mail;
 	}
 	public String getPass() {
-		return pass;
+		return login;
+	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
 	}
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.login = pass;
 	}
 	public Client(int code, String nom, String prenom, String adresse,
 			String tel, String mail, String pass) {
@@ -60,7 +66,7 @@ public class Client {
 		this.adresse = adresse;
 		this.tel = tel;
 		this.mail = mail;
-		this.pass = pass;
+		this.login = pass;
 	}
 	public Client() {
 		super();
@@ -70,7 +76,7 @@ public class Client {
 	public String toString() {
 		return "Client [code=" + code + ", nom=" + nom + ", prenom=" + prenom
 				+ ", adresse=" + adresse + ", tel=" + tel + ", mail=" + mail
-				+ ", pass=" + pass + "]";
+				+ ", pass=" + login + "]";
 	}
 	
 	

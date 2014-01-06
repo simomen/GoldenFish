@@ -43,6 +43,7 @@
 										Statement s = ConnectionFactory.getConnection().createStatement();
 										ResultSet rs = s
 												.executeQuery("SELECT idcat, typech FROM categoriechambre");
+										
 										while (rs.next()) {
 									%>
 									<option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>

@@ -10,7 +10,7 @@ public class ConnectionFactory {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager
-					.getConnection("jdbc:mysql://localhost/gestionhotel?user=root&password=1234");
+					.getConnection("jdbc:mysql://localhost/goldenfish?user=root&password=1234");
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
